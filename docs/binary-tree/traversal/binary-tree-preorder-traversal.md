@@ -37,6 +37,31 @@ values={[
 { label: 'C++', value: 'cpp', },
 ]
 }>
+
+<TabItem value="go">
+
+```golang
+type TreeNode struct {
+	val         int
+	left, right *TreeNode
+}
+func preorderTraversal3(node *TreeNode) []int {
+	res := []int{}
+	preorder(node, &res)
+	return res
+}
+
+func preorder(node *TreeNode, res *[]int) {
+	if node != nil {
+		*res = append(*res, node.val)
+		preorder(node.left, res)
+		preorder(node.right, res)
+	}
+}
+```
+
+</TabItem>
+
 <TabItem value="java">
 
 ```java

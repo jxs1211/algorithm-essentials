@@ -38,15 +38,15 @@ public class BSTIterator {
     /** @return the next smallest number */
     public int next() {
         final TreeNode node = stack.pop();
-        if (node.right != null) {
-            TreeNode p = node.right;
+        if (node.Right != null) {
+            TreeNode p = node.Right;
             while (p != null) {
                 stack.push(p);
                 p = p.left;
             }
 
         }
-        return node.val;
+        return node.Val;
     }
     private Stack<TreeNode> stack;
 }

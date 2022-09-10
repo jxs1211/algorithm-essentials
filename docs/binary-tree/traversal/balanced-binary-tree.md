@@ -10,7 +10,9 @@ For this problem, a height-balanced binary tree is defined as a binary tree in w
 
 ### 分析
 
-无
+1 postorder traversal
+2 depth function is the process that is plus one count before trace back to previous layer
+3 judge condition is the differences between the left subtree node and right subtree by no more than one
 
 ### 代码
 

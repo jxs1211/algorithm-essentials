@@ -27,3 +27,10 @@ func Test_removeDuplicates(t *testing.T) {
 		})
 	}
 }
+
+func TestByte(t *testing.T) {
+	path := 1
+	val := 1
+	t.Logf("%d\n", path<<1)
+	t.Logf("%d\n", path<<1&val)
+}

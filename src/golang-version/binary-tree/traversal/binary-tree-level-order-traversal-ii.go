@@ -1,26 +1,39 @@
 package algorithm
 
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
 func levelOrderBottom(root *TreeNode) [][]int {
 	res := [][]int{}
-	bfs(root, 0, &res)
-	reverse(&res)
+	if root == nil {
+		return res
+	}
+	nextNodes := []*TreeNode{root}
+	traverse2(nextNodes, &res)
 	return res
 }
 
-func reverse(res *[][]int) {
-	for i, j := 0, len(*res)-1; i < j; i, j = i+1, j-1 {
-		(*res)[i], (*res)[j] = (*res)[j], (*res)[i]
+func traverse2(nextNodes []*TreeNode, res *[][]int) {
+	if len(nextNodes) == 0 {
+		return
 	}
-}
+	currValues := []int{}
+	nextLayerNodes := []*TreeNode{}
+	for _, node := range nextNodes {
+		currValues = append(currValues, node.Val)
+		if node.Left != nil {
+			nextLayerNodes = append(nextLayerNodes, node.Left)
+		}
+		if node.Right != nil {
+			nextLayerNodes = append(nextLayerNodes, node.Right)
+		}
+	}
 
-// func bfs(node *TreeNode, level int, res *[][]int) {
-// 	if node == nil {
-// 		return
-// 	}
-// 	if level+1 > len(*res) {
-// 		*res = append(*res, []int{})
-// 	}
-// 	(*res)[level] = append((*res)[level], node.Val)
-// 	bfs(node.Left, level+1, res)
-// 	bfs(node.Right, level+1, res)
-// }
+	traverse(nextLayerNodes, res)
+	*res = append(*res, currValues)
+}

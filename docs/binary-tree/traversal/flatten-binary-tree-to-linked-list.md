@@ -34,7 +34,8 @@ The flattened tree should look like:
 
 ### 分析
 
-无
+1 operate the root in place, treat the LinkedList as the TreeNode
+2 postorder the treeNode to a slice according to the flattened tree
 
 ### 递归版 1
 

@@ -11,7 +11,11 @@ You may assume that duplicates do not exist in the tree.
 
 ### 分析
 
-无
+1 build the value of the root of the tree according to the value of root node in the preorder
+2 traveral the inorder:
+2.1 build the left subnode of the root according to the slice value in the preorder and inorder
+2.2 the index in the slice should not include the index of the current layer's root node
+2.3 build the right subnode of the root according to the slice value in the preorder and inorder
 
 ### 代码
 
