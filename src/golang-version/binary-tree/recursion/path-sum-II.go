@@ -16,22 +16,21 @@ type TreeNode struct {
 }
 
 func pathSum(root *TreeNode, sum int) [][]int {
-    res := [][]int{}
-    dfs(root, sum, &res, []int{})
-    return res
+	res := [][]int{}
+	dfs(root, sum, &res, []int{})
+	return res
 }
 
 func dfs(root *TreeNode, sum int, res *[][]int, path []int) {
-    if root == nil {
-        return
-    }
-    remain := sum - root.Val
-    path = append(path, root.Val)
-    if remain == 0 && root.Left == nil && root.Right == nil {
-        fmt.Println("res: ",root.Val, path)
-        *res = append(*res, path)
-        return
-    }
-    dfs(root.Left, remain, res, path)
-    dfs(root.Right, remain, res, path)
+	if root == nil {
+		return
+	}
+	remain := sum - root.Val
+	path = append(path, root.Val)
+	if remain == 0 && root.Left == nil && root.Right == nil {
+		*res = append(*res, path)
+		return
+	}
+	dfs(root.Left, remain, res, path)
+	dfs(root.Right, remain, res, path)
 }
