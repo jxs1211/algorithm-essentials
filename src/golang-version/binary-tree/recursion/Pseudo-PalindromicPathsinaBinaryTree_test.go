@@ -21,7 +21,7 @@ func Test_pseudoPalindromicPaths(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := pseudoPalindromicPaths(tt.args.root); got != tt.want {
+			if got := pseudoPalindromicPaths(tt.root); got != tt.want {
 				t.Errorf("pseudoPalindromicPaths() = %v, want %v", got, tt.want)
 			}
 		})
@@ -39,7 +39,7 @@ func Test_traversePath(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			traversePath(tt.args.root, tt.args.count, tt.args.res)
+			traversePath(tt.root, tt.count, tt.res)
 		})
 	}
 }
