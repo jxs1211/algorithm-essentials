@@ -1,6 +1,7 @@
 package algorithm
 
 // Solution1
+// postorder
 func isBalanced(root *TreeNode) bool {
 	if root == nil {
 		return true
@@ -18,6 +19,7 @@ func depth(node *TreeNode) int {
 }
 
 // Solution2
+// postorder
 func isBalanced2(root *TreeNode) bool {
 	if root == nil {
 		return true

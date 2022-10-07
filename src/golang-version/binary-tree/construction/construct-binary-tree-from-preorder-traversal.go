@@ -9,6 +9,7 @@ package algorithm
  *     Right *TreeNode
  * }
  */
+// postorder
 func bstFromPreorder(preorder []int) *TreeNode {
 	if len(preorder) == 0 {
 		return nil

@@ -8,6 +8,7 @@ package algorithm
  *     Right *TreeNode
  * }
  */
+//  preorder
 func sumRootToLeaf(root *TreeNode) int {
 	res, path := 0, 0
 	dfsSumRootToLeaf(root, &res, &path)
