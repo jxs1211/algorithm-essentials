@@ -13,7 +13,7 @@ import "strings"
 func smallestFromLeaf(root *TreeNode) string {
 	res := ""
 	path := []byte{}
-	traverse(root, path, &res)
+	traverse333(root, path, &res)
 	return res
 }
 
