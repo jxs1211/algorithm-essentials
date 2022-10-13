@@ -1,7 +1,6 @@
 package algorithm
 
 import (
-	"fmt"
 	"reflect"
 	"testing"
 )
@@ -50,14 +49,41 @@ func Test_delete(t *testing.T) {
 	}
 }
 
-func TestSomething(t *testing.T) {
-	s := []int{1, 2, 3, 4}
-	fmt.Printf("%p\n", s)
-	s2 := s[1:2]
-	fmt.Printf("%p\n", s2)
-	s2[0] = 10
-	fmt.Printf("%v\n", s)
+func getMemoMap(n int) map[int]map[int]int {
+	memo := make(map[int]map[int]int, n)
+	for i := 0; i < n; i++ {
+		memo[i] = make(map[int]int, n)
+	}
+	return memo
+}
 
+func TestSomething(t *testing.T) {
+	// m := getMemoMap(10)
+	// t.Log(m)
+	m := make(map[int]int, 10)
+	t.Log(m)
+	// s := []int{1, 2, 3, 4}
+	// fmt.Printf("%p\n", s)
+	// s2 := s[1:2]
+	// fmt.Printf("%p\n", s2)
+	// s2[0] = 10
+	// fmt.Printf("%v\n", s)
+
+	// m := map[int]int{}
+	// m2 := map[int]map[int]int{
+	// 	1: map[int]int{},
+	// }
+
+	// s := make([][]int, 10)
+	// s := [][]int{}
+	// for i := 0; i < 10; i++ {
+	// 	s = append(s, make([]int, 10))
+	// }
+	// t.Log(len(s), len(s[0]))
+	// s[0][1] = 1
+	// t.Log(s)
+	// m2 := make(map[int]map[int]int, 10)
+	// m2[1][2] = 3
 	// n := 11
 	// fmt.Printf("%b, >>2: %b\n", n, n>>2)
 	// n |= n >> 2

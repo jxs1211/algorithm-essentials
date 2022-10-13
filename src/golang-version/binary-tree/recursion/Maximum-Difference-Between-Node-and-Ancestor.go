@@ -10,10 +10,7 @@ import "math"
  *     Right *TreeNode
  * }
  */
-<<<<<<< HEAD
 //  postorder
-=======
->>>>>>> add and update
 func maxAncestorDiff(root *TreeNode) int {
 	res := 0
 	dfsMaxAncestorDiff(root, &res)
