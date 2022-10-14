@@ -1,16 +1,21 @@
 package algorithm
 
-// Lowest Common Ancestor of a Binary Search Tree
-func lowestCommonAncestor(root *TreeNode, p TreeNode, q TreeNode) *TreeNode {
+// postorder
+func lowestCommonAncestorBinaryTree2(root, p, q *TreeNode) *TreeNode {
 	if root == nil {
 		return nil
 	}
-	if max(p.Val, q.Val) < root.Val {
-		return lowestCommonAncestor(root.Left, p, q)
+	if root == p || root == q {
+		return root
 	}
-	if min(p.Val, q.Val) > root.Val {
-		return lowestCommonAncestor(root.Right, p, q)
+
+	l := lowestCommonAncestorBinaryTree2(root.Left, p, q)
+	r := lowestCommonAncestorBinaryTree2(root.Right, p, q)
+	if l != nil && r != nil {
+		return root
 	}
-	// find the target
-	return root
+	if l != nil {
+		return l
+	}
+	return r
 }
