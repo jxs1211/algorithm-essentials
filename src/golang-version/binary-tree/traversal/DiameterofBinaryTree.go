@@ -10,30 +10,23 @@ package algorithm
  */
 func diameterOfBinaryTree(root *TreeNode) int {
 	res := 0
-	cal(root, &res)
+	diameter(root, &res)
 	return res
 }
 
-func cal(root *TreeNode, res *int) {
-	if root == nil {
-		return
-	}
-	l := maxDepth(root.Left)
-	r := maxDepth(root.Right)
-	*res = max(*res, l+r)
-
-	cal(root.Left, res)
-	cal(root.Right, res)
-}
-
-func maxDepth(root *TreeNode) int {
+func diameter(root *TreeNode, res *int) int {
 	if root == nil {
 		return 0
 	}
+	l := diameter(root.Left, res)
+	r := diameter(root.Right, res)
+	*res = max(*res, l+r)
+	return 1 + max(l, r)
+}
 
-	l := maxDepth(root.Left)
-	r := maxDepth(root.Right)
-	cur := max(l, r) + 1
-
-	return cur
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
 }
