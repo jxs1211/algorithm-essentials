@@ -1,7 +1,6 @@
 package algorithm
 
 // reference the illustration of labuladong's answer
-<<<<<<< HEAD
 // postorder
 func flatten(root *TreeNode) {
 	if root == nil {
@@ -44,22 +43,3 @@ func preorder(root *TreeNode) []int {
 	res = append(res, preorder(root.Right)...)
 	return res
 }
-=======
-func flatten(root *TreeNode)  {
-    if root == nil {return}
-    flatten(root.Left)
-    flatten(root.Right)
-    
-    l := root.Left
-    r := root.Right
-    
-    root.Left = nil
-    root.Right = l
-    
-    p := root
-    for p.Right != nil {
-        p = p.Right
-    }
-    p.Right = r
-}
->>>>>>> add and update

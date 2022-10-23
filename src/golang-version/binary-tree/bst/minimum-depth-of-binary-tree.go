@@ -28,9 +28,9 @@ func minDepthHelper(node *TreeNode) int {
 	return min(minDepthHelper(node.Left), minDepthHelper(node.Right)) + 1
 }
 
-// func min(a, b int) int {
-// 	if a < b {
-// 		return a
-// 	}
-// 	return b
-// }
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}

@@ -9,10 +9,7 @@ package algorithm
  *     Right *TreeNode
  * }
  */
-<<<<<<< HEAD
 //  postorder
-=======
->>>>>>> add and update
 func sufficientSubset(root *TreeNode, limit int) *TreeNode {
 	if root == nil {
 		return nil
