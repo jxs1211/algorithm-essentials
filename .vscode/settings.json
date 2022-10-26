@@ -1,0 +1,7 @@
+{
+    "go.gopath": "/home/going/workspace/golang",
+    "go.goroot": "/root/go/go1.18.3",
+    "files.eol": "\n",
+    "go.lintTool": "golangci-lint",
+    // "go.gopath": ""
+}
