@@ -1,4 +1,4 @@
-package algorithm
+package dp
 
 // Solution1 best one
 // from bottom to top

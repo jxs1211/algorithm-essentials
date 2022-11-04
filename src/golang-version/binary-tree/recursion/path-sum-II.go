@@ -15,22 +15,28 @@ type TreeNode struct {
 	Right *TreeNode
 }
 
-func pathSum(root *TreeNode, sum int) [][]int {
-	res := [][]int{}
-	dfsPathSum(root, sum, &res, []int{})
-	return res
+func pathSum(root *TreeNode, targetSum int) [][]int {
+	allPaths := [][]int{}
+	currentPath := []int{}
+
+	helper(root, currentPath, &allPaths, targetSum)
+
+	return allPaths
 }
 
-func dfsPathSum(root *TreeNode, sum int, res *[][]int, path []int) {
+func helper(root *TreeNode, currentPath []int, allPaths *[][]int, targetSum int) {
 	if root == nil {
 		return
 	}
-	remain := sum - root.Val
-	path = append(path, root.Val)
-	if remain == 0 && root.Left == nil && root.Right == nil {
-		*res = append(*res, path)
+
+	newCurrentPath := make([]int, len(currentPath))
+	copy(newCurrentPath, currentPath)
+	newCurrentPath = append(newCurrentPath, root.Val)
+
+	if root.Val == targetSum && root.Left == nil && root.Right == nil {
+		*allPaths = append(*allPaths, newCurrentPath)
 		return
 	}
-	dfsPathSum(root.Left, remain, res, path)
-	dfsPathSum(root.Right, remain, res, path)
+	helper(root.Left, newCurrentPath, allPaths, targetSum-root.Val)
+	helper(root.Right, newCurrentPath, allPaths, targetSum-root.Val)
 }

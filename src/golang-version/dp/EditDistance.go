@@ -20,8 +20,9 @@ func dp(word1 string, i int, word2 string, j int, memo *[][]int) int {
 		return (*memo)[i][j]
 	}
 	(*memo)[i][j] = min(
-		dp(word1, i-1, word2, j-1, memo)+1,
-		min(dp(word1, i, word2, j-1, memo)+1, dp(word1, i-1, word2, j, memo)+1),
+		dp(word1, i-1, word2, j-1, memo)+1, // replace
+		min(dp(word1, i, word2, j-1, memo)+1, // insert
+			dp(word1, i-1, word2, j, memo)+1), // delete
 	)
 	return (*memo)[i][j]
 }
